@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _EMISSION
+  - _SPECULAR_SETUP
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -108,7 +109,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Shininess: 0
-    - _Smoothness: 0.425
+    - _Smoothness: 0.731
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
@@ -118,12 +119,12 @@ Material:
     - _Surface: 0
     - _TERRAIN_INSTANCED_PERPIXEL_NORMAL: 0
     - _UVSec: 0
-    - _WorkflowMode: 1
+    - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.0047169924, g: 1, b: 0.06724775, a: 1}
     - _Color: {r: 0.0047169924, g: 1, b: 0.067247726, a: 1}
-    - _EmissionColor: {r: 0, g: 1, b: 0.0077028996, a: 1}
+    - _EmissionColor: {r: 0.13034001, g: 0.9528302, b: 0.136791, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8102595586505264507
