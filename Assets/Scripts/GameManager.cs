@@ -10,7 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel, crossHair, diePanel;
     public bool isGameActive = true;
     GameObject player;
+    public int battariesCount = 3;
+    [SerializeField] private Text battariesText;
+    public GameObject titlesPanel;
 
+    [SerializeField] private AudioSource batteryPickUp;
     [SerializeField] Image hpFill;
 
     void OpenPause()
@@ -26,6 +30,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddBattaries()
+    {
+        battariesCount += 1;
+        battariesText.text = battariesCount.ToString() + "/3";
+        batteryPickUp.Play();
+    }
+
     public void ClosePause()
     {
             isGameActive = true;
@@ -36,9 +47,17 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
     }
 
+    public void StartTitles()
+    {
+        titlesPanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void Awake()
     {
         instance = this;
+        battariesCount = 0;
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PlayerManager>().OnHpChange += UpdateHp;
     }

@@ -7,6 +7,9 @@ TagManager:
   - CinemachineTarget
   - FxTemporaire
   - Monster
+  - Battery
+  - BatteryPoint
+  - JumpIn
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Target
+  - Obstacle
   - 
   - 
   - 

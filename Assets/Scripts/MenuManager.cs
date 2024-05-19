@@ -6,14 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject SettingsPanel;
+    [SerializeField] private GameObject SettingsPanel, Tiltles;
     [SerializeField] private Animator SettingsAnim;
+    Monologe monologe;
+
+
+    private void Start()
+    {
+        monologe = GetComponent<Monologe>();
+    }
+
+    public void StartTitles()
+    {
+        Tiltles.SetActive(true);
+        monologe.StartDialog();
+    }
 
     public void ToGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
         SceneManager.LoadScene(1);
     }
 

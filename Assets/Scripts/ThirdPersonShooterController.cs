@@ -70,7 +70,6 @@ public class ThirdPersonShooterController : MonoBehaviour
 
             if (starterAssets.shoot)
             {
-                CinemachineShaker.Instance.Shaker(2f, 0.1f);
                 if (hitTransform != null)
                 {
                     if (hitTransform.GetComponent<BulletTarget>() != null)

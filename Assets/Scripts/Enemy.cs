@@ -6,29 +6,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Zombie Stats")]
-    public float speed;
-    [HideInInspector] public float health;
+    public float health;
     [SerializeField] private float maxHealth;
-    protected float timeBetweenAttack;
-    public float startBetweenAttack;
-    public float attackRange;
-    [SerializeField] private float damage;
-    bool isWalking;
-    bool canAttack;
+    public float damage;
 
     [Header("Zombie Components")]
     [SerializeField] private AudioSource audioSource;
-    private Rigidbody2D rb;
-    public Transform attackPos;
+    [SerializeField] private GameObject deathPartices, particlesSpawnPos;
     public AudioClip[] audioClips;
     public Animator anim;
-    public LayerMask playerMask;
 
     public void Init()
     {
-        isWalking = true;
-        //rb = GetComponent<Rigidbody2D>();
-        //anim = GetComponent<Animator>();
         health = maxHealth;
     }
 
@@ -38,18 +27,22 @@ public class Enemy : MonoBehaviour
         audioSource.Play();
     }
 
-    public void TakeDamage(float damage)
+    private void Update()
     {
-        health = Mathf.Max(health - damage, 0);
         if (health <= 0)
         {
             Death();
         }
     }
+
+    public void TakeDamage(float damage)
+    {
+        health = Mathf.Max(health - damage, 0);
+    }
     private void Death()
     {
-        anim.SetTrigger("Death");
-        Invoke("DestroyMesh", 2f);
+        Instantiate(deathPartices, particlesSpawnPos.transform.position, Quaternion.identity);
+        DestroyMesh();
     }
 
 

@@ -24,4 +24,14 @@ public class PlayerManager : MonoBehaviour
                 GameManager.instance.GameOver();
             }
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Battery")
+        {
+            GameManager.instance.AddBattaries();
+            Destroy(other.gameObject);
+        }
+    }
 }
