@@ -6,6 +6,8 @@ public class PlayerManager : MonoBehaviour
 {
     public delegate void OnHpChangeHandler(float maxHp, float currentHp);
     public OnHpChangeHandler OnHpChange;
+    public AudioClip[] FootstepAudioClips;
+    public AudioSource audioSource;
 
     private float health;
     public float maxHealth;
@@ -32,6 +34,17 @@ public class PlayerManager : MonoBehaviour
         {
             GameManager.instance.AddBattaries();
             Destroy(other.gameObject);
+        }
+    }
+
+    public void OnFootstep()
+    {
+        if (FootstepAudioClips.Length > 0)
+        {
+            var index = Random.Range(0, FootstepAudioClips.Length);
+            audioSource.clip = FootstepAudioClips[index];
+            audioSource.Play();
+
         }
     }
 }
